@@ -79,7 +79,7 @@ export default function PremiumAboutGallery() {
   };
 
   return (
-    <div className="bg-[#f0f4f8] text-[#0f172a] font-sans overflow-x-hidden selection:bg-blue-200 selection:text-blue-900">
+    <div className=" text-[#0f172a] font-sans overflow-x-hidden selection:bg-blue-200 selection:text-blue-900">
       
       {/* Background Pattern Layer */}
       <div className="fixed inset-0 z-0 pointer-events-none opacity-60" style={dotPattern} />

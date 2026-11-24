@@ -123,7 +123,7 @@ export default function FaqSection() {
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-5 md:p-6 text-left"
+                className="w-full flex items-center justify-between p-5 md:p-6 text-left cursor-pointer"
               >
                 <div className="flex items-center gap-4">
                   <div

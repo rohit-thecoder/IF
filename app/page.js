@@ -10,7 +10,6 @@ import StatsSection from "../components/StatsSection";
 export default function HomePage() {
   return (
     <>
-      <Navbar />
       <HeroSection />
       <Curoseal />
       <CollaborationComponent />

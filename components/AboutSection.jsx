@@ -1,185 +1,171 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import TextPlugin from "gsap/TextPlugin";
+import { TextPlugin } from "gsap/TextPlugin";
 import { Code2, Search, Palette, Video, Layers } from "lucide-react";
 
-gsap.registerPlugin(ScrollTrigger, TextPlugin);
+// GSAP Plugins Register safely on client
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, TextPlugin);
+}
 
 export default function HeroAbout() {
+
   const containerRef = useRef(null);
   const typingRef = useRef(null);
   const imageRef = useRef(null);
-  const gridRef = useRef(null);
   const headingRef = useRef(null);
+  const glowRef = useRef(null);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-
-      /* ---------- HEADING ANIMATION (We Combine) ---------- */
-      gsap.from(headingRef.current, {
-        y: 40,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
-        delay: 0.2,
-      });
-
-      /* ---------- TEXT TYPING ---------- */
+  useGSAP(
+    () => {
+      // Heading Entry Animation
       gsap.fromTo(
-        typingRef.current,
-        { text: "" },
+        headingRef.current,
+        { y: 30, opacity: 0 },
         {
-          text:
-            "Infinetic Studios is a digital-first agency based in Jharkhand, delivering scalable, trustworthy, and performance-driven digital solutions. We specialize in web development, social media management, graphic design, video editing, and SEO for businesses across Jharkhand.",
-          duration: 10,
-          ease: "none",
-          delay: 0.8,
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power4.out",
+          delay: 0.2,
         }
       );
 
-      /* ---------- IMAGE REVEAL ---------- */
-      gsap.from(imageRef.current, {
-        scrollTrigger: {
-          trigger: imageRef.current,
-          start: "top 80%",
-        },
-        y: 60,
-        opacity: 0,
-        scale: 0.95,
-        duration: 1.2,
-        ease: "power3.out",
-      });
-
-      /* ---------- GRID OPACITY FLOW ---------- */
+      // Premium Typing Animation
       gsap.fromTo(
-        gridRef.current,
-        { opacity: 0.15 },
+        typingRef.current,
+        { text: "", opacity: 0 },
         {
-          opacity: 0.45,
+          text: "Infinetic Studios is a digital-first agency based in Jharkhand, delivering scalable, trustworthy, and performance-driven digital solutions. We specialize in web development, social media management, graphic design, video editing, and SEO for businesses across Jharkhand.",
+          opacity: 1,
+          duration: 4,
+          ease: "power1.out",
+          delay: 0.6,
+        }
+      );
+
+      // Hero Image Reveal
+      gsap.fromTo(
+        imageRef.current,
+        { y: 50, opacity: 0, scale: 0.98 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1.4,
+          ease: "power3.out",
           scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: true,
+            trigger: imageRef.current,
+            start: "top 85%",
+            toggleActions: "play none none none",
           },
         }
       );
 
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
+      // Interactive Background Glow Movement
+      gsap.to(glowRef.current, {
+        x: 40,
+        y: 20,
+        duration: 8,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
+    },
+    { scope: containerRef }
+  );
 
   return (
     <section
       ref={containerRef}
-      className="relative w-full py-20 lg:py-32 overflow-hidden bg-[#f8fafc]"
+      className="relative w-full py-20 lg:py-32 overflow-hidden bg-gradient-to-b from-[#f8fafc] to-[#edf2f7]"
     >
-
-      {/* ---------------- BACKGROUND ---------------- */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-
-        {/* DOT GRID */}
-        <div
-          ref={gridRef}
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "radial-gradient(#94a3b8 1.4px, transparent 1.4px)",
-            backgroundSize: "26px 26px",
-            maskImage:
-              "linear-gradient(to bottom, transparent 0%, black 55%, black 100%)",
-            WebkitMaskImage:
-              "linear-gradient(to bottom, transparent 0%, black 55%, black 100%)",
-          }}
+      {/* ---------------- PREMIUM BACKGROUND ---------------- */}
+      <div className="absolute inset-0 z-0 pointer-events-none select-none">
+        
+        {/* Whitish Blue Soft Ambient Glows */}
+        <div 
+          ref={glowRef}
+          className="absolute -top-[20%] -left-[10%] w-[600px] h-[600px] bg-gradient-to-tr from-blue-300/30 to-indigo-200/20 rounded-full blur-[130px]" 
         />
+        <div className="absolute top-[40%] -right-[10%] w-[500px] h-[500px] bg-sky-200/20 rounded-full blur-[120px]" />
 
-        {/* SQUARE GRID */}
-        <div
-          className="absolute inset-0 opacity-[0.2]"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, #94a3b8 1px, transparent 1px), linear-gradient(to bottom, #94a3b8 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-            maskImage:
-              "linear-gradient(to bottom, transparent 10%, black 75%)",
-            WebkitMaskImage:
-              "linear-gradient(to bottom, transparent 10%, black 75%)",
-          }}
-        />
-
-        {/* CIRCULAR DOT LAYER (NEW) */}
-        <div
-          className="absolute inset-0 opacity-[0.18]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, #64748b 1px, transparent 0)",
-            backgroundSize: "20px 20px",
-            maskImage:
-              "linear-gradient(to bottom, transparent 20%, black 85%)",
-            WebkitMaskImage:
-              "linear-gradient(to bottom, transparent 20%, black 85%)",
-          }}
-        />
-
-        {/* GLOW */}
-        <div className="absolute -top-[30%] -left-[20%] w-[700px] h-[700px] bg-blue-200/40 rounded-full blur-[140px]" />
+        {/* Clean Abstract Lines */}
+        <svg className="absolute inset-0 w-full h-full opacity-[0.4]" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#e2e8f0" stopOpacity="0" />
+              <stop offset="50%" stopColor="#cbd5e1" stopOpacity="1" />
+              <stop offset="100%" stopColor="#e2e8f0" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          <path d="M-100 100 C 300 300, 1000 -100, 1600 400" fill="none" stroke="url(#line-grad)" strokeWidth="1.5" />
+          <path d="M0 500 C 500 200, 800 800, 1800 300" fill="none" stroke="url(#line-grad)" strokeWidth="1" />
+        </svg>
 
         {/* MOBILE ICONS */}
-        <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-10 opacity-20 lg:hidden">
-          <Code2 size={30} />
-          <Search size={30} />
-          <Palette size={30} />
-          <Video size={30} />
-          <Layers size={30} />
+        <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-8 opacity-10 lg:hidden text-slate-600">
+          <Code2 size={24} />
+          <Search size={24} />
+          <Palette size={24} />
+          <Video size={24} />
+          <Layers size={24} />
         </div>
       </div>
 
       {/* ---------------- CONTENT ---------------- */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-24 items-center">
-
-          {/* TEXT */}
-          <div className="text-center lg:text-left">
-            <p
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          
+          {/* LEFT: TEXT CONTENT */}
+          <div className="text-center lg:text-left flex flex-col justify-center">
+            <h2
               ref={headingRef}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-tight text-[#0a2540]"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-extrabold tracking-tight leading-[1.1] text-[#0a2540] opacity-0"
             >
               We Combine <br className="hidden lg:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700">
                 Innovation & Creativity
               </span>
-            </p>
+            </h2>
 
-            <h1
-              ref={typingRef}
-              className="mt-6 min-h-[95px] text-base sm:text-lg text-slate-600 font-medium leading-relaxed"
-            />
+            <div className="mt-6 min-h-[110px] sm:min-h-[90px] lg:min-h-[120px]">
+              <p
+                ref={typingRef}
+                className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed opacity-0"
+              >
+                Infinetic Studios is a digital-first agency based in Jharkhand...
+              </p>
+            </div>
 
-            <div className="mt-10 flex justify-center lg:justify-start">
-              <button className="px-8 py-4 rounded-full bg-[#0a2540] text-white font-semibold shadow-xl hover:scale-105 transition-all">
-                Start Your Journey
+            <div className="mt-8 flex justify-center lg:justify-start">
+              <button className="relative group overflow-hidden px-8 py-4 rounded-full bg-[#0a2540] text-white font-semibold shadow-lg shadow-indigo-950/10 hover:shadow-xl hover:shadow-indigo-900/20 transition-all duration-300 active:scale-98">
+                <span className="relative z-10">Start Your Journey</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0" />
               </button>
             </div>
           </div>
 
-          {/* IMAGE */}
+          {/* RIGHT: PREMIUM IMAGE CONTAINER */}
           <div
             ref={imageRef}
-            className="relative w-full h-[360px] sm:h-[460px] lg:h-[620px] rounded-[2.5rem] overflow-hidden shadow-2xl border border-white"
+            className="relative w-full h-[380px] sm:h-[480px] lg:h-[580px] rounded-[2.5rem] overflow-hidden shadow-2xl bg-white/30 backdrop-blur-md border border-white/60 p-3 opacity-0"
           >
-            <Image
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
-              alt="Team working together"
-              fill
-              priority
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a2540]/30 to-transparent" />
+            <div className="relative w-full h-full rounded-[2rem] overflow-hidden">
+              <Image
+                src="https://images.unsplash.com/photo-1769740333462-9a63bfa914bc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Team working together"
+                fill
+                priority
+                className="object-cover transform hover:scale-105 transition-transform duration-700 ease-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a2540]/40 via-transparent to-transparent" />
+            </div>
           </div>
 
         </div>
