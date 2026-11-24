@@ -48,17 +48,18 @@ export default function Navbar() {
             : "py-6 bg-transparent"
         }`}
       >
-        <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <nav aria-label="Primary navigation" className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* LOGO */}
           <Link
             onClick={() => setLoading(true)}
             href="/"
+            aria-label="Infinetic Studios home"
             className="flex items-center gap-2 group transition-transform hover:scale-105 cursor-pointer"
           >
             <div className="relative w-10 h-10 overflow-hidden rounded-full border-2 border-blue-100 group-hover:border-blue-500 transition-colors bg-white p-1 shadow-sm">
               <Image
                 src="/logo.png"
-                alt="Infinetic Logo"
+                alt="Infinetic Studios web development agency logo"
                 fill
                 className="object-contain p-0.5"
                 priority
@@ -128,6 +129,7 @@ export default function Navbar() {
           <div className="hidden md:block">
             <a
               href="tel:+916202041591" // Fixed space in tel link
+              aria-label="Call Infinetic Studios"
               className={`px-7 py-3 rounded-full font-bold text-sm transition-all duration-300 active:scale-95 cursor-pointer block ${
                 scrolled
                   ? "bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-600/20"
@@ -141,6 +143,7 @@ export default function Navbar() {
           {/* HAMBURGER (Animated) */}
           <button
             onClick={() => setOpen(true)}
+            aria-label="Open navigation menu"
             className="md:hidden p-2 text-3xl text-[#0a2540] focus:outline-none cursor-pointer group relative z-[60]"
           >
             <div className="space-y-1.5 flex flex-col items-end">
@@ -173,7 +176,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <Image 
               src="/logo.png" 
-              alt="Logo" 
+              alt="Infinetic Studios web development agency logo"
               width={36} 
               height={36} 
               className="rounded-full bg-blue-50/50 p-1 border border-blue-100" 
@@ -182,6 +185,7 @@ export default function Navbar() {
           </div>
           <button
             onClick={() => setOpen(false)}
+            aria-label="Close navigation menu"
             className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-50 text-gray-500 hover:bg-gray-100 hover:text-[#0a2540] transition-all cursor-pointer active:scale-95"
           >
             ✕
@@ -244,6 +248,7 @@ export default function Navbar() {
                 key={i}
                 target="_blank"
                 href="https://www.instagram.com/infinetic_studios?igsh=bjJ1bXQ5NTRjMGVq"
+                aria-label="Visit Infinetic Studios on Instagram"
                 className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#0a2540] border border-gray-200 shadow-sm hover:border-blue-600 hover:text-blue-600 hover:shadow-md transition-all duration-300 cursor-pointer hover:-translate-y-1"
               >
                 <Icon className="text-xl" />
@@ -254,6 +259,7 @@ export default function Navbar() {
           <Link
             onClick={() => setLoading(true)}
             href="/contact"
+            aria-label="Start a project with Infinetic Studios"
             className="w-full flex items-center justify-center bg-[#0a2540] text-white py-4 rounded-xl text-lg font-semibold shadow-lg shadow-[#0a2540]/20 hover:bg-blue-600 hover:shadow-blue-600/30 active:scale-95 transition-all duration-300 cursor-pointer"
           >
             Grab Now

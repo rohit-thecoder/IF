@@ -267,6 +267,7 @@ export default function ClientSection() {
   return (
     <section
       ref={containerRef}
+      aria-labelledby="clients-main-heading"
       className="relative w-full py-32 lg:py-48 bg-[#f8fafc] overflow-hidden text-[#0f172a]"
     >
       {/* --- BACKGROUND (High to Low Fade) --- */}
@@ -298,24 +299,26 @@ export default function ClientSection() {
             <Trophy className="absolute -top-12 -left-12 w-16 h-16 text-yellow-500/10 rotate-[-15deg] hidden lg:block" />
             <TrendingUp className="absolute -top-12 -right-12 w-16 h-16 text-green-500/10 rotate-[15deg] hidden lg:block" />
 
-            <h2
+            <h1
               ref={titleRef}
+              id="clients-main-heading"
               className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-[#0a2540] leading-[0.9]"
             >
-              <div className="overflow-hidden pb-7">
+              <span className="sr-only">Website, mobile app, video editing, graphic design and social media management portfolio from Bokaro, Jharkhand: </span>
+              <span className="overflow-hidden pb-7 block">
                 <span className="hero-title-line block">{"We don't just"} </span>
-              </div>
-              <div className="overflow-hidden">
+              </span>
+              <span className="overflow-hidden block">
                 <span className="hero-title-line block text-transparent bg-clip-text bg-gradient-to-br from-blue-700 to-indigo-900 pb-2">
                   deliver
                 </span>
-              </div>
-              <div className="">
+              </span>
+              <span className="block">
                 <span className="hero-title-line block text-4xl md:text-6xl lg:text-7xl mt-4 font-light text-slate-400">
                   We push you higher.
                 </span>
-              </div>
-            </h2>
+              </span>
+            </h1>
           </div>
 
           <p className="hero-desc text-lg md:text-xl text-slate-500 max-w-2xl leading-relaxed font-medium">
@@ -350,7 +353,7 @@ export default function ClientSection() {
                   <div className="image-inner-scale relative w-full h-full">
                     <Image
                       src={client.imageSrc}
-                      alt={client.name}
+                      alt={`${client.name} — ${client.industry} portfolio project by Infinetic Studios`}
                       fill
                       className="object-cover transition-transform duration-1000 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 60vw"
@@ -428,6 +431,7 @@ export default function ClientSection() {
                         rel="noopener noreferrer"
                         className="w-10 h-10 flex items-center justify-center rounded-full border border-slate-200 text-slate-400 hover:text-[#0a2540] hover:border-[#0a2540] transition-all duration-300"
                         title="Website"
+                        aria-label={`Visit ${client.name} website`}
                       >
                         <Globe className="w-5 h-5" />
                       </Link>
@@ -440,6 +444,7 @@ export default function ClientSection() {
                         rel="noopener noreferrer"
                         className="w-10 h-10 flex items-center justify-center rounded-full border border-slate-200 text-slate-400 hover:text-red-600 hover:border-red-600 transition-all duration-300"
                         title="Youtube"
+                        aria-label={`Visit ${client.name} on YouTube`}
                       >
                         <Youtube className="w-5 h-5" />
                       </Link>
@@ -452,6 +457,7 @@ export default function ClientSection() {
                         rel="noopener noreferrer"
                         className="w-10 h-10 flex items-center justify-center rounded-full border border-slate-200 text-slate-400 hover:text-pink-600 hover:border-pink-600 transition-all duration-300"
                         title="Instagram"
+                        aria-label={`Visit ${client.name} on Instagram`}
                       >
                         <Instagram className="w-5 h-5" />
                       </Link>

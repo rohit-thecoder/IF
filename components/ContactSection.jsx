@@ -76,11 +76,12 @@ export default function PremiumContact() {
   };
 
   return (
-    <section ref={containerRef} className="relative w-full min-h-screen bg-[#f8fafc] overflow-hidden font-sans selection:bg-blue-200 text-[#0f172a]">
+    <section ref={containerRef} aria-labelledby="contact-main-heading" className="relative w-full min-h-screen bg-[#f8fafc] overflow-hidden font-sans selection:bg-blue-200 text-[#0f172a]">
       
       {/* --- FLOATING 'CALL NOW' BUTTON --- */}
       <motion.a 
         href="tel:+916202041591" 
+        aria-label="Call Infinetic Studios for website development services"
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 1.5, type: "spring" }}
@@ -130,7 +131,8 @@ export default function PremiumContact() {
               <span className="text-[11px] font-bold tracking-[0.2em] text-[#0a2540] uppercase">Accepting New Projects</span>
            </div>
 
-           <h1 className="reveal-text text-5xl md:text-6xl lg:text-7xl font-serif font-medium text-[#0a2540] mb-6 tracking-tight">
+           <h1 id="contact-main-heading" className="reveal-text text-5xl md:text-6xl lg:text-7xl font-serif font-medium text-[#0a2540] mb-6 tracking-tight">
+             <span className="sr-only">Contact a web development, app development, video editing and creative agency in Bokaro, Jharkhand and India: </span>
              Start Your <br />
              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
                Digital Transformation.
@@ -166,7 +168,7 @@ export default function PremiumContact() {
                     {[1,2,3].map((i) => (
                        <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-slate-200">
                           {/* Placeholder avatars for 'Team Members' */}
-                          <img src={`https://randomuser.me/api/portraits/men/${i+20}.jpg`} alt="Agent" className="w-full h-full rounded-full object-cover" />
+                          <img src={`https://randomuser.me/api/portraits/men/${i+20}.jpg`} alt="Infinetic Studios consultation team member" loading="lazy" className="w-full h-full rounded-full object-cover" />
                        </div>
                     ))}
                     <div className="w-8 h-8 rounded-full border-2 border-white bg-[#0a2540] flex items-center justify-center text-[10px] font-bold text-white pl-1">+5</div>

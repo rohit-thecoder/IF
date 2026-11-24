@@ -178,6 +178,7 @@ export default function ServicesSection() {
 
             {/* FIXED H2 NESTED INSIDE H1: Refactored into unified Semantic H1 Structure */}
             <h1 id="services-main-heading" className="hero-line relative z-10 text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-[#0a2540] leading-[1.05] mb-8">
+              <span className="sr-only">Website development, mobile app development, video editing and creative services in Bokaro, Jharkhand and India: </span>
               We craft digital <br />
               <span className="relative inline-block mt-2">
                 <span className="absolute -inset-x-8 -inset-y-4 bg-blue-600/10 blur-3xl rounded-[100%] opacity-0 lg:opacity-100 pointer-events-none"></span>
@@ -190,8 +191,7 @@ export default function ServicesSection() {
           
           {/* Clean, Rich Introductory Paragraph with Natural Location Placement */}
           <p className="hero-line text-lg md:text-xl text-slate-500 font-medium max-w-3xl leading-relaxed z-10 mt-2">
-            Our Digital Services in Jharkhand,
-We provide web development services across Jharkhand including Bokaro, Ranchi, and Dhanbad.
+            Website, app, video editing, graphic design and social media services for Bokaro, Chas, Ranchi, Dhanbad, Deoghar, Jharkhand and India.
           </p>
         </header>
 

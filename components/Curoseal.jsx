@@ -6,11 +6,11 @@ import { motion, useAnimationFrame, useMotionValue } from "framer-motion";
 
 // --- Original image data ---
 const originalCardData = [
-  { id: 1, imageUrl: "video.jpg" },
-  { id: 2, imageUrl: "all1.jpg" },
-  { id: 3, imageUrl: "coding.jpg" },
-  { id: 4, imageUrl: "mark.jpg" },
-  { id: 5, imageUrl: "all.png" },
+  { id: 1, imageUrl: "video.jpg", alt: "Professional video editing showcase by Infinetic Studios" },
+  { id: 2, imageUrl: "all1.jpg", alt: "Creative social media and graphic design showcase by Infinetic Studios" },
+  { id: 3, imageUrl: "coding.jpg", alt: "Custom website development project by Infinetic Studios" },
+  { id: 4, imageUrl: "mark.jpg", alt: "Branding and digital marketing showcase by Infinetic Studios" },
+  { id: 5, imageUrl: "all.png", alt: "Infinetic Studios portfolio of digital creative services" },
 ];
 
 // Duplicate the array (extra copies help the curve look full & seamless)
@@ -143,21 +143,21 @@ export default function Curoseal() {
             Trusted by 50+ Ambitious Brands
           </motion.span>
 
-          <motion.h1
+          <motion.h2
             variants={textItemVariant}
             className="text-5xl md:text-7xl font-black text-[#1e40af]"
             style={{ fontFamily: "Playfair Display, serif" }}
           >
             Elevate Your
-          </motion.h1>
-          <motion.h1
+          </motion.h2>
+          <motion.h2
             variants={textItemVariant}
             className="text-5xl md:text-7xl font-black mt-4"
             style={{ fontFamily: "Playfair Display, serif" }}
           >
             <span className="text-[#1e40af]">Digital </span>
             <span className="text-orange-500">Presence</span>
-          </motion.h1>
+          </motion.h2>
 
           <motion.p
             variants={textItemVariant}
@@ -197,7 +197,7 @@ export default function Curoseal() {
               >
                 <img
                   src={card.imageUrl}
-                  alt={`Portfolio showcase ${card.id}`}
+                  alt={card.alt}
                   className="absolute inset-0 w-full h-full object-cover pointer-events-none"
                   loading="lazy"
                 />
@@ -217,6 +217,7 @@ export default function Curoseal() {
         >
           <Link
             href="/services"
+            aria-label="Explore Website Development, App Development and Creative Services"
             className="inline-block bg-gradient-to-r from-[#1e40af] to-[#6284f2] text-white text-lg font-semibold px-12 py-5 rounded-full shadow-2xl hover:scale-105 transition"
             style={{ fontFamily: "Manrope, sans-serif" }}
           >
@@ -226,7 +227,7 @@ export default function Curoseal() {
             className="mt-6 text-gray-500 text-sm"
             style={{ fontFamily: "Manrope, sans-serif" }}
           >
-            Let's discuss your project — no obligation.
+            Let&apos;s discuss your project — no obligation.
           </p>
         </motion.div>
       </motion.section>

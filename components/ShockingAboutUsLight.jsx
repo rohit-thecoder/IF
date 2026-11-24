@@ -111,21 +111,6 @@ export default function PremiumAboutUs() {
       ref={containerRef}
       className={`${display.variable} ${body.variable} ${mono.variable} font-[family-name:var(--font-body)] relative bg-[#F4F7FB] text-[#0B1220] overflow-hidden selection:bg-blue-200 selection:text-[#0B1220]`}
     >
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ProfessionalService",
-            name: "Infinetic Studios",
-            areaServed: "Jharkhand, India",
-            description:
-              "Infinetic Studios provides web development, app development, video editing, and graphic design services.",
-            makesOffer: CAPABILITIES.map((c) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: c.title } })),
-          }),
-        }}
-      />
-
       {/* ARCHITECTURAL GRID BACKGROUND */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.4]"
@@ -148,9 +133,9 @@ export default function PremiumAboutUs() {
       {/* ================= SECTION 1: HERO (Replaced GSAP Pin with Sticky CSS) ================= */}
       <div ref={heroWrapperRef} className="h-[200vh] w-full relative z-20">
         <section className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden">
-          <h1 className="sr-only">
+          <h2 className="sr-only">
             Infinetic Studios — Web Development, App Development, Video Editing &amp; Graphic Design Agency in Jharkhand
-          </h1>
+          </h2>
 
           {/* Live-status badge */}
           <div className="absolute top-10 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#D8E1EE] bg-white/60 backdrop-blur-md font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-widest text-[#0B1220]/70">

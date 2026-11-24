@@ -148,7 +148,7 @@ export default function InfineticStudioConsole() {
             </span>
           </motion.div>
 
-          <motion.h1
+          <motion.h2
             variants={headerItem}
             className="text-5xl md:text-7xl tracking-tight mb-6 leading-[0.95]"
             style={{ fontFamily: DISPLAY_FONT }}
@@ -167,7 +167,7 @@ export default function InfineticStudioConsole() {
             >
               ship.
             </span>
-          </motion.h1>
+          </motion.h2>
 
           <motion.p variants={headerItem} className="text-lg text-slate-500 leading-relaxed">
             Four crafts, one production pipeline. Your web build, your app,
@@ -433,7 +433,7 @@ function WebPane({ color }) {
   const gutter = "text-slate-600 select-none w-4 text-right";
   return (
     <div className="w-full font-mono text-[13px] sm:text-sm leading-7" style={{ fontFamily: MONO }}>
-      <div className={line}><span className={gutter}>1</span><span><span className="text-sky-400">import</span> <span className="text-pink-400">{"{"} Studio {"}"} </span><span className="text-sky-400">from</span> <span className="text-orange-300">'@infinetic/core'</span>;</span></div>
+      <div className={line}><span className={gutter}>1</span><span><span className="text-sky-400">import</span> <span className="text-pink-400">{"{"} Studio {"}"} </span><span className="text-sky-400">from</span> <span className="text-orange-300">{"'@infinetic/core'"}</span>;</span></div>
       <div className={line}><span className={gutter}>2</span><span>&nbsp;</span></div>
       <div className={line}><span className={gutter}>3</span><span><span className="text-sky-400">export function</span> <span className="text-yellow-200">Build</span>() {"{"}</span></div>
       <div className={line}><span className={gutter}>4</span><span>&nbsp;&nbsp;<span className="text-sky-400">return</span> {"<"}<span style={{ color }}>Interface</span></span></div>

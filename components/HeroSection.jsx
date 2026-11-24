@@ -32,7 +32,7 @@ export default function HeroSection() {
   };
 
   const heroText =
-    "Website Development Company in Bokaro, Jharkhand. With over 5 years of experience, Infinetic Studios delivers high-quality website development, creative design, and social media management services to help businesses grow online across Jharkhand.";
+    "Website development agency in Bokaro, Jharkhand. With over 5 years of experience, Infinetic Studios delivers custom websites, mobile apps, video editing, graphic design and social media management across Jharkhand and India.";
 
   return (
     <section
@@ -74,6 +74,7 @@ export default function HeroSection() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-[#0a2540]"
             >
+              <span className="sr-only">Web Development, App Development, Video Editing and Creative Agency in Bokaro, Jharkhand and India: </span>
               Your trusted <br />
               <span className="text-blue-600">BRAND</span> <br />
               in{" "}

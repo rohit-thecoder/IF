@@ -55,12 +55,12 @@ export default function Footer() {
           {/* COLUMN 1: LEFT SIDE BRAND IDENTITY (4-Columns Width) */}
           <div className="lg:col-span-4 flex flex-col justify-between">
   <div>
-    <Link href="/" className="flex items-center gap-3.5 group w-fit">
+    <Link href="/" aria-label="Infinetic Studios home" className="flex items-center gap-3.5 group w-fit">
       {/* सिर्फ लोगो दिखाने के लिए कंटेनर को पूरी तरह क्लीन कर दिया है */}
       <div className="relative w-20 h-20 shrink-0">
         <Image
           src="/logo.png"
-          alt="Infinetic Studios"
+          alt="Infinetic Studios web development and creative agency logo"
           fill
           className="object-contain" // object-cover की जगह object-contain ताकि लोगो कटे नहीं और अपने असली शेप में दिखे
         />
@@ -78,6 +78,7 @@ export default function Footer() {
               
               <p className="mt-5 text-sm text-slate-400 leading-relaxed font-medium max-w-sm">
                 A digital-first agency delivering scalable, trustworthy, and performance-driven digital solutions. We engineer brand assets that dominate.
+                <span className="block mt-3">Serving businesses across Bokaro Steel City, Chas, Dhanbad, Ranchi, Deoghar, Jharkhand &amp; All Over India.</span>
               </p>
             </div>
 
@@ -105,6 +106,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
+                    aria-label={`Visit ${link.label}`}
                     className="group flex items-center gap-1 text-slate-400 hover:text-cyan-400 transition-colors duration-200"
                   >
                     <span>{link.label}</span>
@@ -141,6 +143,7 @@ export default function Footer() {
             <div className="space-y-4">
               <a
                 href="mailto:infineticstudios@gmail.com"
+                aria-label="Email Infinetic Studios"
                 className="group flex items-center gap-3 text-sm text-slate-400 hover:text-white transition-colors duration-200"
               >
                 <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 group-hover:text-cyan-400 group-hover:border-cyan-500/30 transition-colors">
@@ -151,6 +154,7 @@ export default function Footer() {
 
               <a
                 href="tel:+916202041591"
+                aria-label="Call Infinetic Studios"
                 className="group flex items-center gap-3 text-sm text-slate-400 hover:text-white transition-colors duration-200"
               >
                 <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 group-hover:text-cyan-400 group-hover:border-cyan-500/30 transition-colors">

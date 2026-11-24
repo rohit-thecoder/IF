@@ -85,6 +85,7 @@ export default function HeroStreamline() {
   return (
     <section
       ref={containerRef}
+      aria-labelledby="about-main-heading"
       className="relative w-full py-24 lg:py-32 bg-gradient-to-b from-[#f8fafc] to-[#f1f5f9] overflow-hidden antialiased"
     >
       {/* ---------------- DECORATIVE LUXURY BACKGROUND (NO DOTS) ---------------- */}
@@ -101,7 +102,8 @@ export default function HeroStreamline() {
             <Zap size={12} className="fill-blue-600" /> Ecosystem
           </div>
 
-          <h1 className="header-anim font-extrabold text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.15] text-[#0a2540] mb-6">
+          <h1 id="about-main-heading" className="header-anim font-extrabold text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.15] text-[#0a2540] mb-6">
+            <span className="sr-only">Web development, app development, video editing and creative agency in Bokaro, Jharkhand and India: </span>
             Integrated Ecosystem <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700">
               For Infinite Digital Growth

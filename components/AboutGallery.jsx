@@ -101,12 +101,12 @@ export default function PremiumAboutGallery() {
              </span>
            </div>
            
-           <h1 className="mobile-fade-up text-5xl md:text-7xl lg:text-[8.5rem] font-black tracking-tighter leading-[1.1] lg:leading-[0.9] text-[#0a2540] mb-8">
+           <h2 className="mobile-fade-up text-5xl md:text-7xl lg:text-[8.5rem] font-black tracking-tighter leading-[1.1] lg:leading-[0.9] text-[#0a2540] mb-8">
              DIGITAL <br/>
              <span className="text-transparent bg-clip-text bg-gradient-to-br from-blue-600 to-indigo-700 drop-shadow-sm">
                REVOLUTION.
              </span>
-           </h1>
+           </h2>
 
            <div className="mobile-fade-up max-w-xl p-6 bg-white/60 backdrop-blur-md rounded-2xl border border-white/50 shadow-lg lg:shadow-none lg:bg-transparent lg:border-none lg:p-0">
              <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium">
@@ -132,7 +132,7 @@ export default function PremiumAboutGallery() {
               <div className="relative w-full lg:w-1/2 h-[400px] lg:h-full overflow-hidden">
                 <Image 
                   src="/banner.png" 
-                  alt="Team working" 
+                  alt="Infinetic Studios team creating custom web and digital experiences"
                   fill 
                   className="parallax-img object-cover transition-transform duration-700" 
                 />

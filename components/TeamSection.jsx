@@ -94,8 +94,12 @@ export default function PremiumTeamSection() {
   };
 
   useEffect(() => {
-    goTo(index);
-  }, [cardsPerView]);
+    if (!trackRef.current) return;
+
+    const card = cardRefs.current[0];
+    const cardWidth = card ? card.offsetWidth + 24 : 0;
+    gsap.set(trackRef.current, { x: -Math.min(index, maxIndex) * cardWidth });
+  }, [cardsPerView, index, maxIndex]);
 
   useGSAP(
     () => {
@@ -180,7 +184,7 @@ export default function PremiumTeamSection() {
                 >
                   <Image
                     src={member.image}
-                    alt={member.name}
+                    alt={`${member.name}, ${member.role} at Infinetic Studios`}
                     fill
                     sizes="(max-width: 640px) 80vw, (max-width: 1024px) 45vw, 25vw"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
